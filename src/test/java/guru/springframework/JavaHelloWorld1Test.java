@@ -1,12 +1,13 @@
 package guru.springframework;
 
 import org.testng.annotations.Test;
-import static org.testng.Assert.assertEquals;
 
-class JavaHelloWorldTest {
+import static org.testng.Assert.*;
+
+public class JavaHelloWorld1Test {
 
     @Test
-    void getHello() {
+    public void testGetHello() {
         JavaHelloWorld javaHelloWorld = new JavaHelloWorld();
 
         assertEquals("Hello World", javaHelloWorld.getHello());
