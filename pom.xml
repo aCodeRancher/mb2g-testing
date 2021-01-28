@@ -6,7 +6,7 @@
 
     <groupId>guru.springframework</groupId>
     <artifactId>mb2g-testing</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.6</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,21 +26,43 @@
         </extensions>
     </build>
 
-    <profiles>
+   <profiles>
+       <profile>
+           <id>jboss</id>
+           <activation>
+               <activeByDefault>false</activeByDefault>
+           </activation>
+       </profile>
         <profile>
             <id>packagecloud</id>
             <distributionManagement>
                 <repository>
                     <id>packagecloud.release</id>
-                    <url>packagecloud+https://packagecloud.io/springframeworkguru/release</url>
+                    <url>packagecloud+https://packagecloud.io/helenma33/release</url>
                 </repository>
                 <snapshotRepository>
                     <id>packagecloud.snapshot</id>
-                    <url>packagecloud+https://packagecloud.io/springframeworkguru/snapshot</url>
+                    <url>packagecloud+https://packagecloud.io/helenma33/snapshot</url>
                 </snapshotRepository>
             </distributionManagement>
             <activation>
                 <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>nexus_distro</id>
+            <distributionManagement>
+                <repository>
+                    <id>nexus-release</id>
+                    <url>http://localhost:8081/repository/nexus-release/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>nexus-snapshot</id>
+                    <url>http://localhost:8081/repository/nexus-snapshot/</url>
+                </snapshotRepository>
+            </distributionManagement>
+            <activation>
+                <activeByDefault>false</activeByDefault>
             </activation>
         </profile>
     </profiles>
